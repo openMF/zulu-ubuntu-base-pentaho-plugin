@@ -1,0 +1,38 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+        DOCKER_ORGANIZATION: ${{secrets.DOCKER_ORGANIZATION}}
+        FINERACT_VERSION: ${{secrets.FINERACT_LATEST_STABLE_VERSION}}
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        java-version: '17'
+        distribution: 'zulu'
+
+    - name: Docker Hub Login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
+        
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag ubutu-mifos
+      
+    - name: Docker Hub Prepare
+      run: docker image tag ubutu-mifos $DOCKER_ORGANIZATION/ubutu-mifos:$FINERACT_VERSION
+
+    - name: Docker Hub Push  
+      run: docker image push $DOCKER_ORGANIZATION/ubutu-mifos:$FINERACT_VERSION  
