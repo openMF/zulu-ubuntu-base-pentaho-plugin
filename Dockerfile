@@ -3,9 +3,9 @@ FROM azul/zulu-openjdk-alpine:17
 
 RUN mkdir -p ~/.mifosx/pentahoReports/
 
-RUN mkdir /app/libs
+RUN mkdir -p /app/libs
 
-RUN mkdir /app/resources
+RUN mkdir -p /app/resources
 
 RUN cd /app/ && wget https://fintecheando.mx/mifos/1.0.0-dist-fineract-pentaho.zip && unzip 1.0.0-dist-fineract-pentaho.zip && cp ./pentahoReports/* ~/.mifosx/pentahoReports/ cp ./pentahoReports/* /app/resources/
 
