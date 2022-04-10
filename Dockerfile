@@ -8,8 +8,7 @@ RUN mkdir -p /app/libs
 RUN mkdir -p /app/resources
 
 RUN cd /app/ && wget https://fintecheando.mx/mifos/1.0.0-dist-fineract-pentaho.zip && \
-    unzip 1.0.0-dist-fineract-pentaho.zip && cp ./pentahoReports/* /home/fineract/.mifosx/pentahoReports/ &&  \
-    cp /app/libs/* /app/resources/
+    unzip 1.0.0-dist-fineract-pentaho.zip && cp ./pentahoReports/* /home/fineract/.mifosx/pentahoReports/ 
 
 RUN ls -lrt /app/libs/ 
 
