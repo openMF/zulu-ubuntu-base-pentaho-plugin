@@ -13,7 +13,11 @@ RUN cd / && mkdir -p .mifosx/pentahoReports/
 
 RUN mkdir -p /app/resources
 
-RUN cd /app/ && wget https://fintecheando.mx/mifos/1.0.0-dist-fineract-pentaho.zip && unzip 1.0.0-dist-fineract-pentaho.zip && cp ./pentahoReports/* ~/.mifosx/pentahoReports/ && cp ./pentahoReports/* /app/resources/ && cp ./pentahoReports/* /home/fineract/.mifosx/pentahoReports/ && cp ./pentahoReports/* /app/classes/.mifosx/pentahoReports/  && cd / && cd .mifosx/pentahoReports/ && cp /app/classes/.mifosx/pentahoReports/* .
+RUN cd /app/ && wget https://fintecheando.mx/mifos/1.0.0-dist-fineract-pentaho.zip && \
+    unzip 1.0.0-dist-fineract-pentaho.zip && cp ./pentahoReports/* ~/.mifosx/pentahoReports/ &&  \
+    cp ./pentahoReports/* /app/resources/ && cp ./pentahoReports/* /home/fineract/.mifosx/pentahoReports/ &&  \
+    cp ./pentahoReports/* /app/classes/.mifosx/pentahoReports/  && cd / && cd .mifosx/pentahoReports/  \
+    && cp /app/classes/.mifosx/pentahoReports/* . && cp /app/libs/* /app/resources/
 
 RUN ls -lrt /app/libs/ 
 
