@@ -3,6 +3,8 @@ FROM azul/zulu-openjdk-alpine:17
 
 RUN mkdir -p /app/
 
+RUN ls -lrt /app/
+
 RUN cd /app/ && wget https://fintecheando.mx/mifos/1.0.0-dist-fineract-pentaho.zip && \
     unzip 1.0.0-dist-fineract-pentaho.zip 
 
