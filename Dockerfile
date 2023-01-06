@@ -3,13 +3,6 @@ FROM azul/zulu-openjdk-alpine:17
 
 RUN mkdir -p /app/
 
-RUN ls -lrt /app/
-
-RUN cd /app/ && wget https://fintecheando.mx/mifos/1.0.0-dist-fineract-pentaho.zip && \
-    unzip 1.0.0-dist-fineract-pentaho.zip 
-
-RUN ls -lrt /app/pentahoReports/
-
 RUN apk add --no-cache ttf-dejavu msttcorefonts-installer unifont fontconfig  && \
     update-ms-fonts && \
     fc-cache -f
