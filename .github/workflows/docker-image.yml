@@ -29,10 +29,10 @@ jobs:
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
         
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ubutu-mifos
+      run: docker build . --file Dockerfile --tag alpine-mifos
       
     - name: Docker Hub Prepare
-      run: docker image tag ubutu-mifos $DOCKER_ORGANIZATION/ubutu-mifos:$FINERACT_VERSION
+      run: docker image tag alpine-mifos $DOCKER_ORGANIZATION/alpine-mifos:$FINERACT_VERSION
 
     - name: Docker Hub Push  
-      run: docker image push $DOCKER_ORGANIZATION/ubutu-mifos:$FINERACT_VERSION  
+      run: docker image push $DOCKER_ORGANIZATION/alpine-mifos:$FINERACT_VERSION  
