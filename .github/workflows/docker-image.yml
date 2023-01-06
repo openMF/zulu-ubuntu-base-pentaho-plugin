@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
         DOCKER_ORGANIZATION: ${{secrets.DOCKER_ORGANIZATION}}
-        FINERACT_VERSION: ${{secrets.FINERACT_LATEST_STABLE_VERSION}}
+        FINERACT_VERSION: '1.8.3'
 
     steps:
     - uses: actions/checkout@v3
