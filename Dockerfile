@@ -10,7 +10,9 @@ RUN cd /app/ && wget https://fintecheando.mx/mifos/1.0.0-dist-fineract-pentaho.z
 
 RUN ls -lrt /app/pentahoReports/
 
-RUN apk add --no-cache fontconfig ttf-dejavu
+RUN apk add --no-cache ttf-dejavu msttcorefonts-installer unifont fontconfig  && \
+    update-ms-fonts && \
+    fc-cache -f
 
 RUN ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1
 
